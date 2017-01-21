@@ -1,0 +1,34 @@
+OpenCV python wrapper
+---------------------------------------------------------------------------------
+Description:
+Provides a python interface to Intel's Open Computer Vision (OpenCV) library.
+By default, the native CvMat and IplImage types are converted to PyNum arrays 
+to provide compatibility with Scipy and other scientific libraries in python. 
+
+Installation:
+'make' to build
+'make install' to install
+
+Requirements:
+SWIG  --  You'll need a fairly recent version in order expand the macros inside 
+          some of the OpenCV structs ( CvSeq...etc ).  
+		  Version 1.3.21 didn't work, but cvs as of 2005-03-23 did.  
+OpenCV -- 0.9.6 and up
+PyNum  -- Numerical Python 
+SciPy  -- Some of the samples use scipy because at the moment I'm too lazy to 
+          lookup the appropriate PyNum functions and imports
+Notes:
+I tried to make a distutils script for this, but distutils mysteriously switched 
+some gcc flags around that caused the linker to ignore the opencv libraries.  
+Very strange.
+
+TODO:
+-- figure out why some #defines are not being converted ... ie cvCvtPixToPlane
+-- port samples from opencv directory to python as tests
+-- figure out how to deal with pointers to pointers
+-- add typemaps for CvScalar, CvSeq, etc.
+
+rewrite shadow class -- 
+use shape() 
+use zeros()
+short == 'h'
